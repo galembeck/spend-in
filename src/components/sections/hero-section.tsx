@@ -29,7 +29,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Imagem do dashboard */}
       <div className="mt-16 w-full max-w-6xl">
         <Image
           src="/assets/dashboard-preview.svg"
