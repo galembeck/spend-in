@@ -21,8 +21,8 @@ export function Header() {
       link: "#products",
     },
     {
-      name: "Benefit",
-      link: "#benefit",
+      name: "Benefits",
+      link: "#benefits",
     },
     {
       name: "How it Works",
@@ -56,6 +56,7 @@ export function Header() {
               </NavbarButton>
               <NavbarButton
                 variant="primary"
+                href="#pricing"
                 className="bg-primary text-white font-medium text-base rounded-full w-[125px] h-[50px] flex items-center justify-center"
               >
                 Get Demo
@@ -97,6 +98,7 @@ export function Header() {
                 <NavbarButton
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="primary"
+                  href="#pricing"
                   className="w-full"
                 >
                   Get Demo

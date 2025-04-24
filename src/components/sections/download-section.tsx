@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Download() {
   return (
@@ -22,7 +23,7 @@ export function Download() {
 
             <div className="py-8 w-full">
               <button className="bg-primary hover:bg-primary-light-400 text-white font-semibold py-3 px-8 rounded-full transition duration-300 w-full sm:w-auto">
-                Get a Free Demo
+                <Link href="#pricing">Get a Free Demo</Link>
               </button>
             </div>
           </div>

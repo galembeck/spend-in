@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -18,7 +19,7 @@ export function Hero() {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button className="bg-primary hover:bg-primary-light-400 text-white font-semibold py-3 px-8 rounded-full transition duration-300 w-full sm:w-auto">
-            Get a Free Demo
+            <Link href="#pricing">Get a Free Demo</Link>
           </button>
           <a
             href="#pricing"

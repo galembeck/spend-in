@@ -4,7 +4,7 @@ import { BenefitsCard } from "./card/benefits-card";
 
 export function Benefits() {
   return (
-    <section className="py-16 px-7 bg-white">
+    <section id="benefits" className="py-16 px-7 bg-white">
       <div className="max-w-7xl mx-auto pb-8">
         <p className="text-primary font-semibold text-sm uppercase tracking-wide mb-2">
           Why use Spend.in

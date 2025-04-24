@@ -1,10 +1,11 @@
 import { registerCards } from "@/constants";
 import Image from "next/image";
 import { RegisterCard } from "./card/register-card";
+import Link from "next/link";
 
 export function Register() {
   return (
-    <section className="py-16 px-7 bg-secondary-dark-700">
+    <section id="how-it-works" className="py-16 px-7 bg-secondary-dark-700">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
@@ -53,7 +54,7 @@ export function Register() {
 
         <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button className="bg-primary hover:bg-primary-light-400 text-white font-semibold py-3 px-8 rounded-full transition duration-300 w-full sm:w-auto">
-            Get a Free Demo
+            <Link href="#pricing">Get a Free Demo</Link>
           </button>
           <a
             href="#pricing"
