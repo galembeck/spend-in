@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { Badge } from "../ui/badge";
-import { PricingCard } from "./card/pricing-card";
+import { PricingCard } from "./cards/pricing-card";
 import { pricingPlans } from "@/constants";
 
 export function Pricing() {

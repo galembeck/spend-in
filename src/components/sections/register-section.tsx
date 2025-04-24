@@ -1,6 +1,6 @@
 import { registerCards } from "@/constants";
 import Image from "next/image";
-import { RegisterCard } from "./card/register-card";
+import { RegisterCard } from "./cards/register-card";
 import Link from "next/link";
 
 export function Register() {
