@@ -132,7 +132,7 @@ export const socialLinks = [
 export const positiveProductivity = [
   "Analyze your business cost easily with group transaction through tagging feature.",
   "Add more than one card for payment. Integrated with more than 50+ payment methods and support bulk payment.",
-  "Arrange your business expenses by date, name, etc., with just one click.",
+  "With one click, organize your business expenses by date, name, or category for quick and easy access.",
 ];
 
 export const negativeProductivity = [
