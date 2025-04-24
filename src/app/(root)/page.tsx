@@ -1,4 +1,5 @@
 import { Benefits } from "@/components/benefits-section";
+import { Productivity } from "@/components/productivity-section";
 import { Register } from "@/components/register-section";
 
 export default function RootPage() {
@@ -6,6 +7,7 @@ export default function RootPage() {
     <main>
       <Benefits />
       <Register />
+      <Productivity />
     </main>
   );
 }

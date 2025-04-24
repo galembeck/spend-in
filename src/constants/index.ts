@@ -128,3 +128,15 @@ export const socialLinks = [
     href: "/",
   },
 ];
+
+export const positiveProductivity = [
+  "Analyze your business cost easily with group transaction through tagging feature.",
+  "Add more than one card for payment. Integrated with more than 50+ payment methods and support bulk payment.",
+  "Arrange your business expenses by date, name, etc., with just one click.",
+];
+
+export const negativeProductivity = [
+  "Complex recording process due to every administrative file in a different place.",
+  "Need more effort to pay manually one by one invoice because there is no payment accommodation.",
+  "Manual data arranging needs a long time because the different months/years are not in the same place.",
+];
