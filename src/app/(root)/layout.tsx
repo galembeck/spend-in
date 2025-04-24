@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero-section";
+import { Footer } from "@/components/footer";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -25,6 +26,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Hero />
       </main>
       <div>{children}</div>
+
+      <Footer />
     </>
   );
 }
