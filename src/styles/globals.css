@@ -29,13 +29,10 @@
 
 @layer utilities {
   .root-container {
-    @apply flex min-h-screen flex-1 flex-col bg-cover bg-top bg-secondary-dark-700 px-7 py-8 xs:px-10 md:px-32 relative;
+    @apply flex min-h-screen flex-1 flex-col bg-cover bg-top bg-secondary-dark-700 relative;
   }
   .rounded-blur {
     @apply absolute -top-32 -left-32 w-[400px] h-[300px] bg-primary-light-200/10 rounded-full blur-[120px] pointer-events-none z-0;
-  }
-  .sections-container {
-    @apply flex min-h-screen flex-1 flex-col bg-cover bg-top px-7 py-8 xs:px-10 md:px-32 relative;
   }
 }
 
