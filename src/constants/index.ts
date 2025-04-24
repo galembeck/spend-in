@@ -202,3 +202,46 @@ export const pricingPlans: PricingCardProps[] = [
     button: "Get Started",
   },
 ];
+
+export const testimonials = [
+  {
+    title: "It's just incredible!",
+    testimonial:
+      "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
+    avatarUrl: "https://avatars.githubusercontent.com/u/51977156?v=4",
+    name: "Jimmy Bartney",
+    position: "Product Manager at Spend.In",
+  },
+  {
+    title: "Satisfied User Here!",
+    testimonial:
+      "Never thought that with Spend.In managing my business expenses is so easy! Been using this platform for 3 months and still counting!",
+    avatarUrl: "https://avatars.githubusercontent.com/u/51977156?v=4",
+    name: "Natasha Romanoff",
+    position: "Black Widow",
+  },
+  {
+    title: "No doubt, Spend.In is the best!",
+    testimonial:
+      "“The best”! That’s what I want to say to this platform, didn’t know that there’s a platform to help you manage your business expenses like this! Very recommended to you who have a big business!",
+    avatarUrl: "https://avatars.githubusercontent.com/u/51977156?v=4",
+    name: "Moritika Kazuki",
+    position: "Finance Manager at Mangan",
+  },
+  {
+    title: "It's just incredible!",
+    testimonial:
+      "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
+    avatarUrl: "https://avatars.githubusercontent.com/u/51977156?v=4",
+    name: "Jimmy Bartney4",
+    position: "Product Manager at Spend.In",
+  },
+  {
+    title: "It's just incredible!",
+    testimonial:
+      "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
+    avatarUrl: "https://avatars.githubusercontent.com/u/51977156?v=4",
+    name: "Jimmy Bartney5",
+    position: "Product Manager at Spend.In",
+  },
+];

@@ -18,7 +18,7 @@ export function Header() {
   const navItems = [
     {
       name: "Products",
-      link: "#products",
+      link: "#pricing",
     },
     {
       name: "Benefits",

@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { ReactNode } from "react";
+import Image from "next/image";
 
-import { Header } from "@/components/header";
-import { Hero } from "@/components/sections/hero-section";
 import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -23,9 +22,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Header />
         </div>
 
-        <Hero />
+        <div>{children}</div>
       </main>
-      <div>{children}</div>
 
       <Footer />
     </>

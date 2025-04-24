@@ -39,3 +39,11 @@ export interface PricingCardProps {
   badge?: string;
   isYearly?: boolean;
 }
+
+export interface TestimonialsCardProps {
+  title: string;
+  testimonial: string;
+  avatarUrl: string;
+  name: string;
+  position: string;
+}
