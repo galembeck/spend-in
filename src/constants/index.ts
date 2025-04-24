@@ -36,3 +36,95 @@ export const registerCards = [
     description: "Done, let's continue the work!",
   },
 ];
+
+export const productLinks = [
+  {
+    name: "Digital Invoice",
+    href: "/",
+  },
+  {
+    name: "Insights",
+    href: "/",
+  },
+  {
+    name: "Reimbursements",
+    href: "/",
+  },
+  {
+    name: "Virtual Assistant",
+    href: "/",
+  },
+  {
+    name: "Artificial Intelligence",
+    href: "/",
+  },
+];
+
+export const resourcesLinks = [
+  {
+    name: "Blog",
+    href: "/",
+  },
+  {
+    name: "Pricing",
+    href: "/",
+  },
+  {
+    name: "FAQ",
+    href: "/",
+  },
+  {
+    name: "Events",
+    href: "/",
+  },
+  {
+    name: "Ebook & Guide",
+    href: "/",
+  },
+];
+
+export const companyLinks = [
+  {
+    name: "About Us",
+    href: "/",
+  },
+  {
+    name: "Newsletters",
+    href: "/",
+  },
+  {
+    name: "Our Partners",
+    href: "/",
+  },
+  {
+    name: "Career",
+    href: "/",
+  },
+  {
+    name: "Contact Us",
+    href: "/",
+  },
+];
+
+export const socialLinks = [
+  {
+    name: "LinkedIn",
+    href: "/",
+  },
+  {
+    name: "Twitter",
+    href: "/",
+  },
+  {
+    name: "Instagram",
+    href: "/",
+  },
+  {
+    name: "Facebook",
+    href: "/",
+  },
+  {
+    name: "YouTube",
+    href: "/",
+  },
+];

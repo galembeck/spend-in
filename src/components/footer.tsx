@@ -1,5 +1,14 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
+import { FooterItem } from "./footer-item";
+
+import {
+  companyLinks,
+  productLinks,
+  resourcesLinks,
+  socialLinks,
+} from "./../constants/index";
 
 export function Footer() {
   return (
@@ -23,186 +32,18 @@ export function Footer() {
         <div className="grid-cols-2 grid xl:col-span-2">
           <div className="md:grid md:grid-cols-2 md:gap-8">
             <div>
-              <h3 className="text-lg font-semibold text-black">Product</h3>
-              <ul className="mt-6 text-secondary-light-400 text-base font-normal">
-                <li>
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Digital Invoice
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Insights
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Reimbursements
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Virtual Assistant
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Artificial Intelligence
-                  </Link>
-                </li>
-              </ul>
+              <FooterItem title="Product" links={productLinks} />
             </div>
             <div className="mt-10 md:mt-0 flex flex-col">
-              <h3 className="text-lg font-semibold text-black">Resources</h3>
-              <ul className="mt-6 text-secondary-light-400 text-base font-normal">
-                <li>
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Events
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Ebook & Guide
-                  </Link>
-                </li>
-              </ul>
+              <FooterItem title="Resources" links={resourcesLinks} />
             </div>
           </div>
           <div className="md:grid md:grid-cols-2 md:gap-8">
             <div className="">
-              <h3 className="text-lg font-semibold text-black">Company</h3>
-              <ul className="mt-6 text-secondary-light-400 text-base font-normal">
-                <li>
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Newsletters
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Our Partners
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Career
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-              </ul>
+              <FooterItem title="Company" links={companyLinks} />
             </div>
             <div className="mt-10 md:mt-0 flex flex-col">
-              <h3 className="text-lg font-semibold text-black">Follow Us</h3>
-              <ul className="mt-6 text-secondary-light-400 text-base font-normal">
-                <li>
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    LinkedIn
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Twitter
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Instagram
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Facebook
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link
-                    href="/"
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    YouTube
-                  </Link>
-                </li>
-              </ul>
+              <FooterItem title="Follow Us" links={socialLinks} />
             </div>
           </div>
         </div>

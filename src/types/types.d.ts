@@ -17,3 +17,11 @@ export interface RegisterCardProps {
   image: string;
   description: string;
 }
+
+export interface FooterItemProps {
+  title: string;
+  links: {
+    name: string;
+    href: string;
+  }[];
+}
