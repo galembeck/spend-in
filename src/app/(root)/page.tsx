@@ -1,7 +1,7 @@
-import { Benefits } from "@/components/benefits-section";
-import { Register } from "@/components/register-section";
-import { Productivity } from "@/components/productivity-section";
-import { Download } from "@/components/download-section";
+import { Benefits } from "@/components/sections/benefits-section";
+import { Register } from "@/components/sections/register-section";
+import { Productivity } from "@/components/sections/productivity-section";
+import { Download } from "@/components/sections/download-section";
 
 export default function RootPage() {
   return (

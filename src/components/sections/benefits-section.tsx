@@ -1,6 +1,6 @@
 import { benefitsCards } from "@/constants";
 
-import { BenefitsCard } from "./benefits-card";
+import { BenefitsCard } from "./card/benefits-card";
 
 export function Benefits() {
   return (

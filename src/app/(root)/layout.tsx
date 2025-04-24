@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ReactNode } from "react";
 
 import { Header } from "@/components/header";
-import { Hero } from "@/components/hero-section";
+import { Hero } from "@/components/sections/hero-section";
 import { Footer } from "@/components/footer";
 
 export default function RootLayout({ children }: { children: ReactNode }) {

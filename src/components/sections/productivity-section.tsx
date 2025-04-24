@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductivityCard } from "./productivity-card";
+import { ProductivityCard } from "./card/productivity-card";
 
 export function Productivity() {
   return (
