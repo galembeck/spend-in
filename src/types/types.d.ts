@@ -25,3 +25,17 @@ export interface FooterItemProps {
     href: string;
   }[];
 }
+
+export interface PricingCardProps {
+  title: string;
+  icon: string;
+  subtitle: string;
+  priceMonthly: string;
+  priceYearly: string;
+  description: string;
+  includedFeatures: string[];
+  notIncludedFeatures?: string[];
+  button: string;
+  badge?: string;
+  isYearly?: boolean;
+}
