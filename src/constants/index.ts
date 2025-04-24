@@ -1,3 +1,5 @@
+import { PricingCardProps } from "@/types/types";
+
 export const benefitsCards = [
   {
     image: "/assets/benefit-card-1.svg",
@@ -139,4 +141,64 @@ export const negativeProductivity = [
   "Complex recording process due to every administrative file in a different place.",
   "Need more effort to pay manually one by one invoice because there is no payment accommodation.",
   "Manual data arranging needs a long time because the different months/years are not in the same place.",
+];
+
+export const pricingPlans: PricingCardProps[] = [
+  {
+    title: "Free",
+    icon: "/assets/icons/lovely.svg",
+    subtitle: "Perfect plan to get started.",
+    priceMonthly: "$0",
+    priceYearly: "$0",
+    description:
+      "A free plan grants you access to some cool features of Spend.In.",
+    includedFeatures: [
+      "Sync across device",
+      "5 workspace",
+      "Collaborate with 5 user",
+    ],
+    notIncludedFeatures: [
+      "Sharing permission",
+      "Admin tools",
+      "100+ integrations",
+    ],
+    button: "Get Your Free Plan",
+  },
+  {
+    title: "Pro",
+    icon: "/assets/icons/crown.svg",
+    subtitle: "Perfect plan for professionals!",
+    priceMonthly: "$12",
+    priceYearly: "$93,6",
+    description:
+      "For professional only! Start arranging your expenses with our best templates.",
+    includedFeatures: [
+      "Everything in Free Plan",
+      "Unlimited workspace",
+      "Collaborative workspace",
+      "Sharing permission",
+      "Admin tools",
+      "100+ integrations",
+    ],
+    button: "Get Started",
+    badge: "Popular",
+  },
+  {
+    title: "Ultimate",
+    icon: "/assets/icons/share.svg",
+    subtitle: "Best suits for great company.",
+    priceMonthly: "$33",
+    priceYearly: "$257,4",
+    description:
+      "If you a finance manager at big  company, this plan is a perfect match.",
+    includedFeatures: [
+      "Everything in Pro Plan",
+      "Daily performance reports",
+      "Dedicated assistant",
+      "Artificial intelligence",
+      "Marketing tools & automations",
+      "Advanced security",
+    ],
+    button: "Get Started",
+  },
 ];
