@@ -8,7 +8,7 @@ import {
   productLinks,
   resourcesLinks,
   socialLinks,
-} from "./../constants/index";
+} from "../../../constants/index";
 
 export function Footer() {
   return (
