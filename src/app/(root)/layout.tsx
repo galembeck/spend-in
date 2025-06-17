@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Image from "next/image";
 
 import { Footer } from "@/components/(root)/navigation/footer";
-import { Header } from "@/components/(root)/navigation/navbar";
+import { Header } from "@/components/(root)/navigation/header";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
