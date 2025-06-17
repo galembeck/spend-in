@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${jakartaSans.variable} antialiased`}
+        className={`${jakartaSans.variable} antialiased hide-scrollbar`}
       >
         {children}
       </body>
