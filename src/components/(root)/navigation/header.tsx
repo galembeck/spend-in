@@ -76,13 +76,14 @@ export function Header() {
             <MobileNavMenu
               isOpen={isMobileMenuOpen}
               onClose={() => setIsMobileMenuOpen(false)}
+              className="bg-secondary-dark-700"
             >
               {navItems.map((item, idx) => (
                 <a
                   key={`mobile-link-${idx}`}
                   href={item.link}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="relative text-neutral-600 dark:text-neutral-300"
+                  className="relative text-white/90 dark:text-neutral-300 hover:text-white/70"
                 >
                   <span className="block">{item.name}</span>
                 </a>
@@ -99,7 +100,7 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="primary"
                   href="#pricing"
-                  className="w-full"
+                  className="w-full bg-primary text-white"
                 >
                   Get Demo
                 </NavbarButton>
