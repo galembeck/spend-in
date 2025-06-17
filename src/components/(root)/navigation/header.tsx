@@ -42,7 +42,7 @@ export function Header() {
 
   return (
     <header>
-      <div className="relative w-full max-w-7xl mx-auto flex items-center justify-between z-10">
+      <div className="relative w-full max-w-7xl mx-auto flex items-center justify-between z-10 mt-5">
         <Navbar>
           <NavBody>
             <NavbarLogo />
