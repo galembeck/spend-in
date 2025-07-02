@@ -1,6 +1,6 @@
-import { SpendingStatistics } from "@/components/(dashboard)/spending-statistics";
 import { BalanceCard } from "@/components/(dashboard)/balance-card";
 import { IncomeExpenses } from "@/components/(dashboard)/income-expenses";
+import { SpendingStatistics } from "@/components/(dashboard)/spending-statistics";
 import { TransactionHistory } from "@/components/(dashboard)/transaction-history";
 
 export default function DashboardPage() {
