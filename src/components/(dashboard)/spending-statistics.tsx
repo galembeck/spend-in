@@ -59,7 +59,7 @@ export function SpendingStatistics() {
       },
       yaxis: {
         title: {
-          text: "$ (thousands)",
+          text: "$ (thousand)",
         },
       },
       fill: {
@@ -92,7 +92,7 @@ export function SpendingStatistics() {
           return `
             <div class="px-3 py-2 rounded-lg bg-white shadow-md">
               <div class="text-xs text-neutral-800 mb-1"><span class="font-bold">Mês:</span> ${monthFullName}</div>
-              <div class="font-semibold text-[#725CFF]"><span class="font-bold">Expense:</span> $${value.toLocaleString()} thousands</div>
+              <div class="font-semibold text-[#725CFF]"><span class="font-bold">Expense:</span> $${value.toLocaleString()} thousand</div>
             </div>
           `;
         },
