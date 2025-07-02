@@ -38,7 +38,7 @@ export function BalanceCard() {
           />
           Deposit
         </Button>
-        <Button className="bg-white text-black gap-3 py-6 px-5 rounded-xl border-2 border-primary">
+        <Button className="bg-white text-black gap-3 py-6 px-5 rounded-xl border-2 border-primary hover:bg-secondary-light-100/20">
           <Image
             src="/assets/icons/money-send.svg"
             alt="Receive"
