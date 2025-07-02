@@ -6,6 +6,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { spendInMetadata } from "@/config";
 
 import "../styles/globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -62,7 +63,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
 
-        {children}
+        <ClerkProvider>{children}</ClerkProvider>
       </body>
     </html>
   );
