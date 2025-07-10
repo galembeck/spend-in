@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { TestimonialsCardProps } from "@/types/types";
+import type { TestimonialsCardProps } from "@/types/types";
 
 export function TestimonialsCard({
   title,
@@ -10,23 +10,23 @@ export function TestimonialsCard({
   position,
 }: TestimonialsCardProps) {
   return (
-    <div className="w-full h-full flex flex-col justify-between bg-secondary p-6 rounded-xl">
-      <div className="flex flex-col items-start gap-5 border-b border-secondary-light-300 flex-1">
-        <h1 className="text-white font-semibold text-lg">{title}</h1>
-        <p className="text-secondary-light-100 pb-6">{testimonial}</p>
+    <div className="flex h-full w-full flex-col justify-between rounded-xl bg-secondary p-6">
+      <div className="flex flex-1 flex-col items-start gap-5 border-secondary-light-300 border-b">
+        <h1 className="font-semibold text-lg text-white">{title}</h1>
+        <p className="pb-6 text-secondary-light-100">{testimonial}</p>
       </div>
 
       <div className="flex flex-row gap-4 pt-6">
         <Image
-          src={avatarUrl}
           alt="Avatar"
-          width={58}
-          height={58}
           className="rounded-full"
+          height={58}
+          src={avatarUrl}
+          width={58}
         />
 
         <div className="flex flex-col gap-1">
-          <h1 className="text-white font-semibold text-base">{name}</h1>
+          <h1 className="font-semibold text-base text-white">{name}</h1>
           <p className="text-secondary-light-200 text-sm">{position}</p>
         </div>
       </div>

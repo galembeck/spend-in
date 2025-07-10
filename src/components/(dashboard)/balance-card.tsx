@@ -1,6 +1,6 @@
 import { IconDots } from "@tabler/icons-react";
-import { Button } from "../ui/button";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 export function BalanceCard() {
   const now = new Date();
@@ -9,41 +9,41 @@ export function BalanceCard() {
   const lastDay = new Date(year, now.getMonth() + 1, 0).getDate();
 
   return (
-    <div className="flex flex-col bg-white rounded-lg p-6 gap-2">
+    <div className="flex flex-col gap-2 rounded-lg bg-white p-6">
       <div className="flex flex-row justify-between">
         <h1 className="font-semibold text-base text-secondary">Your balance</h1>
-        <IconDots size={24} className="cursor-pointer" />
+        <IconDots className="cursor-pointer" size={24} />
       </div>
 
-      <div className="flex flex-row mt-5 gap-3">
+      <div className="mt-5 flex flex-row gap-3">
         <h1 className="font-bold text-4xl text-secondary tracking-tighter">
           $120,435.00
         </h1>
-        <p className="mt-5 text-secondary-light-300 font-semibold text-sm">
+        <p className="mt-5 font-semibold text-secondary-light-300 text-sm">
           (USD)
         </p>
       </div>
 
-      <p className="mt-4 text-secondary-light-300 font-semibold text-xs tracking-wide">
+      <p className="mt-4 font-semibold text-secondary-light-300 text-xs tracking-wide">
         From {month} 01, {year} to {month} {lastDay}, {year}
       </p>
 
-      <div className="flex flex-row gap-6 mt-6">
-        <Button className="bg-primary text-white gap-3 py-6 px-5 rounded-xl">
+      <div className="mt-6 flex flex-row gap-6">
+        <Button className="gap-3 rounded-xl bg-primary px-5 py-6 text-white">
           <Image
-            src="/assets/icons/money-receive.svg"
             alt="Receive"
-            width={23}
             height={23}
+            src="/assets/icons/money-receive.svg"
+            width={23}
           />
           Deposit
         </Button>
-        <Button className="bg-white text-black gap-3 py-6 px-5 rounded-xl border-2 border-primary hover:bg-secondary-light-100/20">
+        <Button className="gap-3 rounded-xl border-2 border-primary bg-white px-5 py-6 text-black hover:bg-secondary-light-100/20">
           <Image
-            src="/assets/icons/money-send.svg"
             alt="Receive"
-            width={23}
             height={23}
+            src="/assets/icons/money-send.svg"
+            width={23}
           />
           Transfer
         </Button>

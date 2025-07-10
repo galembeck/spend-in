@@ -1,32 +1,35 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
     <section
+      className="flex flex-col items-center bg-secondary-dark-700 px-7 py-12"
       id="#"
-      className="px-7 py-12 flex flex-col items-center bg-secondary-dark-700"
     >
-      <div className="max-w-4xl w-full text-center">
+      <div className="w-full max-w-4xl text-center">
         <div className="flex items-center justify-center">
-          <h1 className="text-start text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight md:leading-tight text-white sm:text-center max-w-3xl">
+          <h1 className="max-w-3xl text-start font-bold text-4xl text-white leading-tight tracking-tight sm:text-center md:text-5xl md:leading-tight lg:text-6xl">
             All your business expenses in one place.
           </h1>
         </div>
         <div className="flex items-center justify-center">
-          <p className="text-gray-400 mt-6 text-base md:text-lg leading-relaxed max-w-2xl">
+          <p className="mt-6 max-w-2xl text-base text-gray-400 leading-relaxed md:text-lg">
             Your one-stop finance empower platform. Manage all your business
             expenses with our supafast app.
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="bg-primary hover:bg-primary-light-400 text-white font-semibold py-3 px-8 rounded-full transition duration-300 w-full sm:w-auto">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <button
+            className="w-full rounded-full bg-primary px-8 py-3 font-semibold text-white transition duration-300 hover:bg-primary-light-400 sm:w-auto"
+            type="button"
+          >
             <Link href="#pricing">Get a Free Demo</Link>
           </button>
           <a
+            className="text-gray-400 text-sm no-underline transition duration-200 hover:text-white sm:rounded-full sm:bg-secondary sm:px-7 sm:py-4 sm:hover:bg-secondary/80"
             href="#pricing"
-            className="text-gray-400 hover:text-white text-sm transition duration-200 no-underline sm:bg-secondary sm:px-7 sm:py-4 sm:rounded-full sm:hover:bg-secondary/80"
           >
             See Pricing
           </a>
@@ -35,12 +38,12 @@ export function Hero() {
 
       <div className="mt-16 w-full max-w-6xl">
         <Image
-          src="/assets/dashboard-preview.svg"
           alt="Dashboard Preview"
-          width={1200}
+          className="h-full w-full rounded-xl shadow-2xl"
           height={800}
-          className="w-full h-full rounded-xl shadow-2xl"
           priority
+          src="/assets/dashboard-preview.svg"
+          width={1200}
         />
       </div>
     </section>

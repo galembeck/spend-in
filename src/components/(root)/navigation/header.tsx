@@ -1,18 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import { UserButton, useUser } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
 
 import {
   MobileNav,
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle,
+  NavBody,
   Navbar,
   NavbarButton,
   NavbarLogo,
-  NavBody,
   NavItems,
 } from "@/components/ui/resizable-navbar";
 
@@ -53,7 +52,7 @@ export function Header() {
 
   return (
     <header>
-      <div className="relative w-full max-w-7xl mx-auto flex items-center justify-between z-10 mt-5">
+      <div className="relative z-10 mx-auto mt-5 flex w-full max-w-7xl items-center justify-between">
         <Navbar>
           <NavBody>
             <NavbarLogo />
@@ -74,16 +73,16 @@ export function Header() {
               ) : (
                 <>
                   <NavbarButton
-                    variant="secondary"
+                    className="font-medium text-base text-secondary-light-200"
                     href="/sign-in"
-                    className="text-secondary-light-200 font-medium text-base"
+                    variant="secondary"
                   >
                     Login
                   </NavbarButton>
                   <NavbarButton
-                    variant="primary"
+                    className="flex h-[50px] w-[125px] items-center justify-center rounded-full bg-primary font-medium text-base text-white"
                     href="/"
-                    className="bg-primary text-white font-medium text-base rounded-full w-[125px] h-[50px] flex items-center justify-center"
+                    variant="primary"
                   >
                     Get Demo
                   </NavbarButton>
@@ -102,16 +101,19 @@ export function Header() {
             </MobileNavHeader>
 
             <MobileNavMenu
+              className="bg-secondary-dark-700"
               isOpen={isMobileMenuOpen}
               onClose={() => setIsMobileMenuOpen(false)}
-              className="bg-secondary-dark-700"
             >
               {navItems.map((item, idx) => (
                 <a
-                  key={`mobile-link-${idx}`}
+                  className="relative text-white/90 hover:text-white/70 dark:text-neutral-300"
                   href={item.link}
+                  key={`mobile-link-${
+                    // biome-ignore lint/suspicious/noArrayIndexKey: required by navbar
+                    idx
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="relative text-white/90 dark:text-neutral-300 hover:text-white/70"
                 >
                   <span className="block">{item.name}</span>
                 </a>
@@ -122,18 +124,18 @@ export function Header() {
                 ) : (
                   <>
                     <NavbarButton
+                      className="w-full"
+                      href="/sign-in"
                       onClick={() => setIsMobileMenuOpen(false)}
                       variant="primary"
-                      href="/sign-in"
-                      className="w-full"
                     >
                       Login
                     </NavbarButton>
                     <NavbarButton
+                      className="w-full bg-primary text-white"
+                      href="/"
                       onClick={() => setIsMobileMenuOpen(false)}
                       variant="primary"
-                      href="/"
-                      className="w-full bg-primary text-white"
                     >
                       Get Demo
                     </NavbarButton>

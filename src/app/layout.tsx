@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { Plus_Jakarta_Sans } from "next/font/google";
 
 import Script from "next/script";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import type { ReactNode } from "react";
 
 import { spendInMetadata } from "@/config";
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <Script
-          id="clarity-script"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: required by Clarity
           dangerouslySetInnerHTML={{
             __html: `
 						  (function(c,l,a,r,i,t,y){
@@ -31,11 +31,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               })(window, document, "clarity", "script", "s8m43jxmy7")
             `,
           }}
+          id="clarity-script"
         />
 
         {/* <!-- Google Tag Manager --> */}
         <Script
-          id="wdsli-script"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: requite by Google Tag Manager
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -45,20 +46,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               })(window,document,'script','dataLayer','GTM-WK93RFDX');
 						`,
           }}
+          id="wdsli-script"
         />
         {/* <!-- End Google Tag Manager --> */}
       </head>
       <body
+        className={`${jakartaSans.variable} hide-scrollbar antialiased`}
         suppressHydrationWarning
-        className={`${jakartaSans.variable} antialiased hide-scrollbar`}
       >
         {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WK93RFDX"
             height="0"
-            width="0"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WK93RFDX"
             style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+            width="0"
           />
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}

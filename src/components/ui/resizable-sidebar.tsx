@@ -1,16 +1,15 @@
 "use client";
 
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import {
   createContext,
-  ReactNode,
+  type ReactNode,
   useContext,
   useEffect,
   useRef,
   useState,
 } from "react";
-
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
 
 interface SidebarProps {
   children: ReactNode;
@@ -32,8 +31,8 @@ interface SidebarContextType {
   expanded: boolean;
 }
 
-import { MoreVertical } from "lucide-react";
 import { IconLogout2 } from "@tabler/icons-react";
+import { MoreVertical } from "lucide-react";
 import Link from "next/link";
 
 const SidebarContext = createContext<SidebarContextType>({ expanded: true });
@@ -74,34 +73,34 @@ export function Sidebar({ children }: SidebarProps) {
 
   return (
     <aside className="h-screen">
-      <nav className="h-full flex flex-col bg-white border-r shadow-sm">
-        <div className="px-4 flex justify-between items-center">
+      <nav className="flex h-full flex-col border-r bg-white shadow-sm">
+        <div className="flex items-center justify-between px-4">
           {!expanded && (
             <Image
-              src="/assets/icons/logo-black.svg"
               alt="Logo"
-              width={10}
+              className="my-4 ml-1.5 w-[75%]"
               height={10}
-              className="w-[75%] my-4 ml-1.5"
+              src="/assets/icons/logo-black.svg"
+              width={10}
             />
           )}
 
           <div
-            className={`overflow-hidden transition-all flex justify-center ${
+            className={`flex justify-center overflow-hidden transition-all ${
               expanded ? "w-full" : "w-0 pb-4"
             }`}
           >
             {expanded && (
-              <div className="flex flex-row items-center justify-center gap-2 mt-7">
-                <Link href="/dashboard" className="flex flex-row">
+              <div className="mt-7 flex flex-row items-center justify-center gap-2">
+                <Link className="flex flex-row" href="/dashboard">
                   <Image
-                    src="/assets/icons/logo-black.svg"
                     alt="Logo"
-                    width={32}
                     height={32}
+                    src="/assets/icons/logo-black.svg"
+                    width={32}
                   />
 
-                  <h1 className="text-black font-bold text-xl">Spend.In</h1>
+                  <h1 className="font-bold text-black text-xl">Spend.In</h1>
                 </Link>
               </div>
             )}
@@ -120,31 +119,37 @@ export function Sidebar({ children }: SidebarProps) {
           <ul className="flex-1 px-4">{children}</ul>
         </SidebarContext.Provider>
 
-        <div className="border-t p-3 relative">
+        <div className="relative border-t p-3">
           <div className="flex items-center">
             {expanded ? (
               <Image
-                src="https://avatars.githubusercontent.com/u/51977156?v=4"
                 alt="User Avatar"
-                width={40}
-                height={40}
                 className={`rounded-md ${expanded ? "ml-0" : "ml-2"}`}
+                height={40}
+                src="https://avatars.githubusercontent.com/u/51977156?v=4"
+                width={40}
               />
             ) : (
-              <button className="flex p-4 hover:bg-error/20 rounded-xl">
+              <button
+                className="flex rounded-xl p-4 hover:bg-error/20"
+                type="button"
+              >
                 <IconLogout2 size={20} />
               </button>
             )}
 
             {expanded && (
-              <div className="ml-3 w-full flex justify-between items-center">
+              <div className="ml-3 flex w-full items-center justify-between">
                 <div className="leading-4">
                   <h4 className="font-semibold">Pedro Galembeck</h4>
-                  <span className="text-xs text-gray-600">
+                  <span className="text-gray-600 text-xs">
                     galembeckpedro@gmail.com
                   </span>
                 </div>
-                <button onClick={() => setShowMenu((prev) => !prev)}>
+                <button
+                  onClick={() => setShowMenu((prev) => !prev)}
+                  type="button"
+                >
                   <MoreVertical size={20} />
                 </button>
               </div>
@@ -153,15 +158,16 @@ export function Sidebar({ children }: SidebarProps) {
 
           {showMenu && (
             <div
+              className="absolute right-3 bottom-full z-20 mb-2 w-36 rounded border bg-white shadow-md"
               ref={menuRef}
-              className="absolute right-3 bottom-full mb-2 w-36 bg-white border rounded shadow-md z-20"
             >
               <button
+                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                 onClick={() => {
                   alert("Logging out...");
                   setShowMenu(false);
                 }}
-                className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                type="button"
               >
                 Log out
               </button>
@@ -194,21 +200,18 @@ export function SidebarItem({
   };
 
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: stop complaining...
+    // biome-ignore lint/nursery/noNoninteractiveElementInteractions: stop complaining...
     <li
+      className={`group relative my-2 flex cursor-pointer items-center justify-center rounded-xl px-3 py-2 font-medium transition-colors ${
+        isActive ? "bg-primary text-white" : "text-gray-600 hover:bg-indigo-50"
+      } `}
       onClick={handleNavigation}
-      className={`relative flex items-center py-2 px-3 justify-center my-2
-        font-medium rounded-xl cursor-pointer transition-colors group
-        ${
-          isActive
-            ? "bg-primary text-white"
-            : "hover:bg-indigo-50 text-gray-600"
-        }
-      `}
     >
       {icon}
       <span
         className={`overflow-hidden transition-all ${
-          expanded ? "w-52 ml-3" : "w-0"
+          expanded ? "ml-3 w-52" : "w-0"
         }`}
       >
         {text}
@@ -216,7 +219,7 @@ export function SidebarItem({
 
       {alert && (
         <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${
+          className={`absolute right-2 h-2 w-2 rounded bg-indigo-400 ${
             expanded ? "" : "top-2"
           }`}
         />
@@ -224,12 +227,9 @@ export function SidebarItem({
 
       {!expanded && (
         <div
-          className={`
-            absolute left-full rounded-md px-2 py-1 ml-6
-            bg-indigo-100 text-indigo-800 text-sm truncate
-            invisible opacity-20 -translate-x-3 transition-all
-            group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-          `}
+          className={
+            "-translate-x-3 invisible absolute left-full ml-6 truncate rounded-md bg-indigo-100 px-2 py-1 text-indigo-800 text-sm opacity-20 transition-all group-hover:visible group-hover:translate-x-0 group-hover:opacity-100 "
+          }
         >
           {text}
         </div>
@@ -245,7 +245,7 @@ export function SidebarSection({ section }: SidebarSectionProps) {
     <p
       className={`${
         expanded
-          ? "block px-5 mt-10 text-secondary-light-300 font-medium text-xs"
+          ? "mt-10 block px-5 font-medium text-secondary-light-300 text-xs"
           : "hidden"
       }`}
     >

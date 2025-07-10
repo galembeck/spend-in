@@ -1,64 +1,67 @@
-import { registerCards } from "@/constants";
 import Image from "next/image";
-import { RegisterCard } from "./cards/register-card";
 import Link from "next/link";
+import { registerCards } from "@/constants";
+import { RegisterCard } from "./cards/register-card";
 
 export function Register() {
   return (
-    <section id="how-it-works" className="py-16 px-7 bg-secondary-dark-700">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <section className="bg-secondary-dark-700 px-7 py-16" id="how-it-works">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div className="order-2 md:order-1">
             <Image
-              src="/assets/register-steps.svg"
               alt="Register Steps"
-              width={588}
+              className="max-h-[536px] w-full rounded-xl shadow-lg"
               height={536}
-              className="w-full max-h-[536px] rounded-xl shadow-lg"
+              src="/assets/register-steps.svg"
+              width={588}
             />
           </div>
 
           <div className="order-1 md:order-2">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wide mb-2">
+            <p className="mb-2 font-semibold text-primary text-sm uppercase tracking-wide">
               How it works
             </p>
 
-            <h2 className="text-3xl max-w-64 md:max-w-7xl md:text-4xl font-bold text-white leading-snug mb-4">
+            <h2 className="mb-4 max-w-64 font-bold text-3xl text-white leading-snug md:max-w-7xl md:text-4xl">
               Few Easy Steps and Done
             </h2>
 
-            <p className="text-secondary-light-300 text-base mb-8">
+            <p className="mb-8 text-base text-secondary-light-300">
               In just few easy steps, you are all set to manage your business
               finances. Manage all expenses with Spend.In all in one place.
             </p>
 
             <Image
-              src="/assets/register-items.svg"
               alt="Steps"
-              width={526}
+              className="h-auto w-full"
               height={288}
-              className="w-full h-auto"
+              src="/assets/register-items.svg"
+              width={526}
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-start mt-20 items-center justify-center justify-items-center">
+        <div className="mt-20 grid grid-cols-1 items-center justify-center justify-items-center gap-10 text-start md:grid-cols-3">
           {registerCards.map((card) => (
             <RegisterCard
-              key={card.description}
-              image={card.image}
               description={card.description}
+              image={card.image}
+              key={card.description}
             />
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="bg-primary hover:bg-primary-light-400 text-white font-semibold py-3 px-8 rounded-full transition duration-300 w-full sm:w-auto">
+        <div className="mt-16 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <button
+            className="w-full rounded-full bg-primary px-8 py-3 font-semibold text-white transition duration-300 hover:bg-primary-light-400 sm:w-auto"
+            type="button"
+          >
             <Link href="#pricing">Get a Free Demo</Link>
           </button>
           <a
+            className="text-gray-400 text-sm no-underline transition duration-200 hover:text-white sm:rounded-full sm:bg-secondary sm:px-7 sm:py-4 sm:hover:bg-secondary/80"
             href="#pricing"
-            className="text-gray-400 hover:text-white text-sm transition duration-200 no-underline sm:bg-secondary sm:px-7 sm:py-4 sm:rounded-full sm:hover:bg-secondary/80"
           >
             See Pricing
           </a>

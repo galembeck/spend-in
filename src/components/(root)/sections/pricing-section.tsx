@@ -1,67 +1,66 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-
+import { useState } from "react";
+import { pricingPlans } from "@/constants";
 import { Badge } from "../../ui/badge";
 import { PricingCard } from "./cards/pricing-card";
-import { pricingPlans } from "@/constants";
 
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section id="pricing" className="px-6 py-16 md:py-28 bg-white text-center">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+    <section className="bg-white px-6 py-16 text-center md:py-28" id="pricing">
+      <h2 className="font-bold text-3xl text-gray-800 md:text-4xl">
         Ready to Get Started?
       </h2>
-      <p className="text-gray-500 mt-4 mb-8 text-lg">
+      <p className="mt-4 mb-8 text-gray-500 text-lg">
         Choose a plan that suits your business needs.
       </p>
 
-      <div className="relative flex flex-col items-center justify-center gap-4 mb-6">
-        <div className="flex items-center justify-center gap-4 z-10">
+      <div className="relative mb-6 flex flex-col items-center justify-center gap-4">
+        <div className="z-10 flex items-center justify-center gap-4">
           <span className="font-semibold text-secondary-dark-700">Monthly</span>
-          <label className="relative inline-flex items-center cursor-pointer">
+          <label className="relative inline-flex cursor-pointer items-center">
             <input
-              type="checkbox"
-              className="sr-only peer"
               checked={isYearly}
+              className="peer sr-only"
               onChange={() => setIsYearly(!isYearly)}
+              type="checkbox"
             />
-            <div className="w-14 h-7 bg-gray-200 ring-2 ring-primary peer-checked:bg-primary rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[5px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all"></div>
+            <div className="peer h-7 w-14 rounded-full bg-gray-200 ring-2 ring-primary after:absolute after:top-[2px] after:left-[5px] after:h-6 after:w-6 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white dark:bg-gray-700" />
           </label>
           <span className="font-semibold text-secondary-dark-700">Yearly</span>
         </div>
 
-        <div className="flex flex-row items-center justify-center ml-16 gap-2">
-          <Badge className="bg-primary-light-100 hover:bg-primary-light-100 ml-4 z-10">
+        <div className="ml-16 flex flex-row items-center justify-center gap-2">
+          <Badge className="z-10 ml-4 bg-primary-light-100 hover:bg-primary-light-100">
             Save 65%
           </Badge>
           <Image
-            src="/assets/icons/curve-arrow.svg"
             alt="Arrow"
-            width={57}
             height={50}
+            src="/assets/icons/curve-arrow.svg"
+            width={57}
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-left">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 text-left md:grid-cols-3">
         {pricingPlans.map((plan) => (
           <PricingCard
-            key={plan.title}
-            title={plan.title}
-            icon={plan.icon}
-            subtitle={plan.subtitle}
-            priceYearly={plan.priceYearly}
-            priceMonthly={plan.priceMonthly}
-            description={plan.description}
-            includedFeatures={plan.includedFeatures}
-            notIncludedFeatures={plan.notIncludedFeatures}
-            button={plan.button}
             badge={plan.badge}
+            button={plan.button}
+            description={plan.description}
+            icon={plan.icon}
+            includedFeatures={plan.includedFeatures}
             isYearly={isYearly}
+            key={plan.title}
+            notIncludedFeatures={plan.notIncludedFeatures}
+            priceMonthly={plan.priceMonthly}
+            priceYearly={plan.priceYearly}
+            subtitle={plan.subtitle}
+            title={plan.title}
           />
         ))}
       </div>

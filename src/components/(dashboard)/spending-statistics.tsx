@@ -2,16 +2,15 @@
 
 "use client";
 
-import { useState } from "react";
-
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
 export function SpendingStatistics() {
-  const [state, setState] = useState<{
+  const [state, _setState] = useState<{
     series: { name: string; data: number[] }[];
     options: ApexCharts.ApexOptions;
   }>({
@@ -67,7 +66,7 @@ export function SpendingStatistics() {
         colors: ["#725CFF"],
       },
       tooltip: {
-        custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+        custom({ series, seriesIndex, dataPointIndex, w }) {
           const value = series[seriesIndex][dataPointIndex];
 
           const monthMap: { [key: string]: string } = {
@@ -101,16 +100,16 @@ export function SpendingStatistics() {
   });
 
   return (
-    <div className="flex flex-col bg-white rounded-lg p-6 gap-2">
+    <div className="flex flex-col gap-2 rounded-lg bg-white p-6">
       <h1 className="font-semibold text-base text-secondary">
         Spending Statistics
       </h1>
       <div>
         <ReactApexChart
+          height={350}
           options={state.options}
           series={state.series}
           type="bar"
-          height={350}
         />
       </div>
     </div>

@@ -6,19 +6,19 @@ import { TransactionHistory } from "@/components/(dashboard)/transaction-history
 export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col gap-6 lg:flex-row">
         <div className="flex-1">
           <SpendingStatistics />
         </div>
 
-        <div className="w-full lg:w-1/3 flex flex-col gap-6">
+        <div className="flex w-full flex-col gap-6 lg:w-1/3">
           <BalanceCard />
           <TransactionHistory />
           {/* <SpendCategory /> */}
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col gap-6 lg:flex-row">
         <div className="flex-1">
           <IncomeExpenses />
         </div>

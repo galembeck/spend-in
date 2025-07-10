@@ -1,10 +1,9 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
+import { useUser } from "@clerk/nextjs";
 
 import { useRouter } from "next/navigation";
-
-import { useUser } from "@clerk/nextjs";
+import { type ReactNode, useEffect } from "react";
 
 import { Navbar } from "@/components/(dashboard)/navigation/navbar";
 import { DashboardSidebar } from "@/components/(dashboard)/navigation/sidebar";
@@ -21,7 +20,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   if (!isLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex min-h-screen items-center justify-center">
         <div className="text-lg">Carregando...</div>
       </div>
     );
@@ -32,10 +31,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <main className="flex flex-row w-full h-screen">
+    <main className="flex h-screen w-full flex-row">
       <DashboardSidebar />
 
-      <div className="w-full flex flex-col bg-[#f4f4f4]">
+      <div className="flex w-full flex-col bg-[#f4f4f4]">
         <Navbar />
         <div className="p-8">{children}</div>
       </div>

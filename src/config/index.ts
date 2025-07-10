@@ -1,9 +1,9 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const spendInConfig = {
   title: {
     default: "Spend.In | All your business expenses in one place",
-    template: `%s | Spend.In`,
+    template: "%s | Spend.In",
   },
   url: "https://spend-in-g.vercel.app",
   description:

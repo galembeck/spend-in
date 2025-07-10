@@ -1,4 +1,4 @@
-import { PricingCardProps } from "@/types/types";
+import type { PricingCardProps } from "@/types/types";
 
 export const benefitsCards = [
   {
