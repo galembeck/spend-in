@@ -1,7 +1,7 @@
 "use client";
 
 import { UserButton, useUser } from "@clerk/nextjs";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import {
   MobileNav,
@@ -16,14 +16,7 @@ import {
 } from "@/components/ui/resizable-navbar";
 
 export function Header() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const { user } = useUser();
-
-  useEffect(() => {
-    if (user) {
-      setIsLoaded(true);
-    }
-  }, [user]);
 
   const navItems = [
     {
@@ -58,18 +51,26 @@ export function Header() {
             <NavbarLogo />
             <NavItems items={navItems} />
             <div className="flex items-center gap-4">
-              {isLoaded ? (
-                <UserButton
-                  afterSignOutUrl="/"
-                  appearance={{
-                    elements: {
-                      userButtonAvatarBox: "w-10 h-10",
-                      userButtonAvatarImage: "rounded-full",
-                      userButtonPopoverCard: "bg-secondary-dark-700",
-                      userButtonPopoverFooter: "hidden",
-                    },
-                  }}
-                />
+              {user ? (
+                <>
+                  <NavbarButton
+                    className="font-medium text-base text-secondary-light-200"
+                    href="/dashboard"
+                    variant="secondary"
+                  >
+                    Dashboard
+                  </NavbarButton>
+                  <UserButton
+                    appearance={{
+                      elements: {
+                        userButtonAvatarBox: "w-10 h-10",
+                        userButtonAvatarImage: "rounded-full",
+                        userButtonPopoverCard: "bg-secondary-dark-700",
+                        userButtonPopoverFooter: "hidden",
+                      },
+                    }}
+                  />
+                </>
               ) : (
                 <>
                   <NavbarButton
@@ -119,7 +120,7 @@ export function Header() {
                 </a>
               ))}
               <div className="flex w-full flex-col gap-4">
-                {isLoaded ? (
+                {user ? (
                   <UserButton />
                 ) : (
                   <>
@@ -131,14 +132,25 @@ export function Header() {
                     >
                       Login
                     </NavbarButton>
-                    <NavbarButton
-                      className="w-full bg-primary text-white"
-                      href="/"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      variant="primary"
-                    >
-                      Get Demo
-                    </NavbarButton>
+                    {user ? (
+                      <NavbarButton
+                        className="w-full bg-primary text-white"
+                        href="/dashboard"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        variant="primary"
+                      >
+                        Get Demo
+                      </NavbarButton>
+                    ) : (
+                      <NavbarButton
+                        className="w-full bg-primary text-white"
+                        href="/"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        variant="primary"
+                      >
+                        Get Demo
+                      </NavbarButton>
+                    )}
                   </>
                 )}
               </div>

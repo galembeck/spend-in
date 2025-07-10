@@ -1,12 +1,11 @@
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Plus_Jakarta_Sans } from "next/font/google";
-
 import Script from "next/script";
 import type { ReactNode } from "react";
-
 import { spendInMetadata } from "@/config";
 
 import "../styles/globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -52,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body
         className={`${jakartaSans.variable} hide-scrollbar antialiased`}
-        suppressHydrationWarning
+        suppressHydrationWarning={true}
       >
         {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
@@ -66,7 +65,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
 
-        <ClerkProvider>{children}</ClerkProvider>
+        <ClerkProvider>
+          <AntdRegistry>{children}</AntdRegistry>
+        </ClerkProvider>
       </body>
     </html>
   );

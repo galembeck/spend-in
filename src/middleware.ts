@@ -8,7 +8,7 @@ export default clerkMiddleware(async (auth, req) => {
 
   // if there is user and home route is accessed, redirect to dashboard or any other protected route
   if (userId && isHomeRoute(req)) {
-    return NextResponse.rewrite(new URL("/dashboard", req.url));
+    return NextResponse.rewrite(new URL("/", req.url));
   }
 });
 

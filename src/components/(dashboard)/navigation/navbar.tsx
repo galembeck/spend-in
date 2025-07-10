@@ -1,25 +1,30 @@
-// Navbar.tsx
 "use client";
 
+import { UserButton, useUser } from "@clerk/nextjs";
 import { IconBell } from "@tabler/icons-react";
-import Image from "next/image";
+import { Breadcrumb } from "antd";
 import { usePathname } from "next/navigation";
+import { PAGE_TITLES } from "@/constants/page-titles";
 
 export function Navbar() {
-  const pathname = usePathname();
+  const { user } = useUser();
 
-  const title =
-    pathname
-      .split("/")
-      .filter(Boolean)
-      .pop()
-      ?.replace(/-/g, " ")
-      .replace(/\b\w/g, (char) => char.toUpperCase()) || "Dashboard";
+  const pathname = usePathname();
+  const title = PAGE_TITLES[pathname] || "Dashboard";
 
   return (
     <nav className="w-full bg-white">
       <div className="flex items-center justify-between px-8 py-4">
-        <h1 className="font-bold text-secondary text-xl">{title}</h1>
+        <h1 className="font-bold text-secondary text-xl">
+          <Breadcrumb
+            items={[
+              {
+                href: pathname,
+                title,
+              },
+            ]}
+          />
+        </h1>
 
         <div className="flex flex-row items-center justify-center gap-6">
           <div className="flex h-9 w-9 items-center justify-center rounded-full border border-secondary-light-200">
@@ -29,19 +34,15 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="hidden flex-row items-center justify-center gap-3 sm:flex">
-            <Image
-              alt="Avatar"
-              className="rounded-full"
-              height={36}
-              src="https://avatars.githubusercontent.com/u/51977156?v=4"
-              width={36}
-            />
+          {user && (
+            <div className="hidden flex-row items-center justify-center gap-3 sm:flex">
+              <h3 className="font-semibold text-secondary text-sm">
+                {user.firstName} {user.lastName}
+              </h3>
 
-            <h3 className="font-semibold text-secondary text-sm">
-              Pedro Galembeck
-            </h3>
-          </div>
+              <UserButton />
+            </div>
+          )}
         </div>
       </div>
     </nav>

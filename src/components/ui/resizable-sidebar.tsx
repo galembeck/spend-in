@@ -31,6 +31,7 @@ interface SidebarContextType {
   expanded: boolean;
 }
 
+import { useAuth, useUser } from "@clerk/nextjs";
 import { IconLogout2 } from "@tabler/icons-react";
 import { MoreVertical } from "lucide-react";
 import Link from "next/link";
@@ -38,10 +39,24 @@ import Link from "next/link";
 const SidebarContext = createContext<SidebarContextType>({ expanded: true });
 
 export function Sidebar({ children }: SidebarProps) {
+  const { user } = useUser();
+  const { signOut } = useAuth();
+
+  const router = useRouter();
+
   const [expanded, setExpanded] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      router.push("/");
+    } catch {
+      alert("Failed to log out. Please try again later.");
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -121,31 +136,39 @@ export function Sidebar({ children }: SidebarProps) {
 
         <div className="relative border-t p-3">
           <div className="flex items-center">
-            {expanded ? (
-              <Image
-                alt="User Avatar"
-                className={`rounded-md ${expanded ? "ml-0" : "ml-2"}`}
-                height={40}
-                src="https://avatars.githubusercontent.com/u/51977156?v=4"
-                width={40}
-              />
-            ) : (
-              <button
-                className="flex rounded-xl p-4 hover:bg-error/20"
-                type="button"
-              >
-                <IconLogout2 size={20} />
-              </button>
-            )}
+            {user &&
+              (expanded ? (
+                <Image
+                  alt="User Avatar"
+                  className={`rounded-md ${expanded ? "ml-0" : "ml-2"}`}
+                  height={40}
+                  src={
+                    user.imageUrl ||
+                    (user.firstName?.[0] ?? "") + (user.lastName?.[0] ?? "")
+                  }
+                  width={40}
+                />
+              ) : (
+                <button
+                  className="flex rounded-xl p-4 hover:bg-error/20"
+                  type="button"
+                >
+                  <IconLogout2 size={20} />
+                </button>
+              ))}
 
             {expanded && (
               <div className="ml-3 flex w-full items-center justify-between">
-                <div className="leading-4">
-                  <h4 className="font-semibold">Pedro Galembeck</h4>
-                  <span className="text-gray-600 text-xs">
-                    galembeckpedro@gmail.com
-                  </span>
-                </div>
+                {user && (
+                  <div className="leading-4">
+                    <h4 className="font-semibold">
+                      {user.firstName} {user.lastName}
+                    </h4>
+                    <span className="text-gray-600 text-xs">
+                      {user.emailAddresses[0]?.emailAddress}
+                    </span>
+                  </div>
+                )}
                 <button
                   onClick={() => setShowMenu((prev) => !prev)}
                   type="button"
@@ -162,9 +185,9 @@ export function Sidebar({ children }: SidebarProps) {
               ref={menuRef}
             >
               <button
-                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                className="w-full px-4 py-2 text-left text-destructive text-sm hover:text-destructive/80"
                 onClick={() => {
-                  alert("Logging out...");
+                  handleSignOut();
                   setShowMenu(false);
                 }}
                 type="button"
