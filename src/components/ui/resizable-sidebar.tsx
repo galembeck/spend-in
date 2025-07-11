@@ -1,13 +1,15 @@
 "use client";
 
+import { useAuth, useUser } from "@clerk/nextjs";
+import { IconLogout2 } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   createContext,
   type ReactNode,
   useContext,
   useEffect,
-  useRef,
   useState,
 } from "react";
 
@@ -31,11 +33,6 @@ interface SidebarContextType {
   expanded: boolean;
 }
 
-import { useAuth, useUser } from "@clerk/nextjs";
-import { IconLogout2 } from "@tabler/icons-react";
-import { MoreVertical } from "lucide-react";
-import Link from "next/link";
-
 const SidebarContext = createContext<SidebarContextType>({ expanded: true });
 
 export function Sidebar({ children }: SidebarProps) {
@@ -45,9 +42,6 @@ export function Sidebar({ children }: SidebarProps) {
   const router = useRouter();
 
   const [expanded, setExpanded] = useState(true);
-  const [showMenu, setShowMenu] = useState(false);
-
-  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleSignOut = async () => {
     try {
@@ -71,19 +65,6 @@ export function Sidebar({ children }: SidebarProps) {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setShowMenu(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
   }, []);
 
   return (
@@ -136,66 +117,25 @@ export function Sidebar({ children }: SidebarProps) {
 
         <div className="relative border-t p-3">
           <div className="flex items-center">
-            {user &&
-              (expanded ? (
-                <Image
-                  alt="User Avatar"
-                  className={`rounded-md ${expanded ? "ml-0" : "ml-2"}`}
-                  height={40}
-                  src={
-                    user.imageUrl ||
-                    (user.firstName?.[0] ?? "") + (user.lastName?.[0] ?? "")
-                  }
-                  width={40}
-                />
-              ) : (
-                <button
-                  className="flex rounded-xl p-4 hover:bg-error/20"
-                  type="button"
-                >
-                  <IconLogout2 size={20} />
-                </button>
-              ))}
-
-            {expanded && (
-              <div className="ml-3 flex w-full items-center justify-between">
-                {user && (
-                  <div className="leading-4">
-                    <h4 className="font-semibold">
-                      {user.firstName} {user.lastName}
-                    </h4>
-                    <span className="text-gray-600 text-xs">
-                      {user.emailAddresses[0]?.emailAddress}
-                    </span>
-                  </div>
-                )}
-                <button
-                  onClick={() => setShowMenu((prev) => !prev)}
-                  type="button"
-                >
-                  <MoreVertical size={20} />
-                </button>
-              </div>
-            )}
-          </div>
-
-          {showMenu && (
-            <div
-              className="absolute right-3 bottom-full z-20 mb-2 w-36 rounded border bg-white shadow-md"
-              ref={menuRef}
-            >
+            {user && expanded ? (
               <button
-                className="w-full px-4 py-2 text-left text-destructive text-sm hover:text-destructive/80"
-                onClick={() => {
-                  handleSignOut();
-                  setShowMenu(false);
-                }}
+                className="flex items-center justify-center gap-2 rounded-xl p-3 font-medium text-destructive hover:bg-error/20"
+                onClick={() => handleSignOut()}
                 type="button"
               >
+                <IconLogout2 size={20} />
                 Log out
               </button>
-            </div>
-          )}
+            ) : (
+              <button
+                className="flex rounded-xl p-4 text-destructive hover:bg-error/20"
+                onClick={() => handleSignOut()}
+                type="button"
+              >
+                <IconLogout2 size={20} />
+              </button>
+            )}
+          </div>
         </div>
       </nav>
     </aside>
@@ -226,7 +166,7 @@ export function SidebarItem({
     // biome-ignore lint/a11y/useKeyWithClickEvents: stop complaining...
     // biome-ignore lint/nursery/noNoninteractiveElementInteractions: stop complaining...
     <li
-      className={`group relative my-2 flex cursor-pointer items-center justify-center rounded-xl px-3 py-2 font-medium transition-colors ${
+      className={`group relative my-2 flex cursor-pointer items-center justify-center rounded-xl px-3 py-2 transition-colors ${
         isActive ? "bg-primary text-white" : "text-gray-600 hover:bg-indigo-50"
       } `}
       onClick={handleNavigation}
@@ -234,7 +174,7 @@ export function SidebarItem({
       {icon}
       <span
         className={`overflow-hidden transition-all ${
-          expanded ? "ml-3 w-52" : "w-0"
+          expanded ? "ml-3 w-52 font-medium" : "w-0"
         }`}
       >
         {text}
@@ -269,7 +209,7 @@ export function SidebarSection({ section }: SidebarSectionProps) {
       className={`${
         expanded
           ? "mt-10 block px-5 font-medium text-secondary-light-300 text-xs"
-          : "hidden"
+          : "w-10 border-secondary-light-300 border-t text-transparent" // hidden
       }`}
     >
       {section}

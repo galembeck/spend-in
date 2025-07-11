@@ -15,7 +15,7 @@ export function Navbar() {
   return (
     <nav className="w-full bg-white">
       <div className="flex items-center justify-between px-8 py-4">
-        <h1 className="font-bold text-secondary text-xl">
+        <p className="text-lg text-secondary">
           <Breadcrumb
             items={[
               {
@@ -24,7 +24,7 @@ export function Navbar() {
               },
             ]}
           />
-        </h1>
+        </p>
 
         <div className="flex flex-row items-center justify-center gap-6">
           <div className="flex h-9 w-9 items-center justify-center rounded-full border border-secondary-light-200">
@@ -35,11 +35,12 @@ export function Navbar() {
           </div>
 
           {user && (
-            <div className="hidden flex-row items-center justify-center gap-3 sm:flex">
-              <h3 className="font-semibold text-secondary text-sm">
-                {user.firstName} {user.lastName}
-              </h3>
-
+            <div className="flex flex-row items-center justify-center gap-3">
+              <div className="hidden flex-row items-center justify-center gap-3 sm:flex">
+                <h3 className="font-semibold text-secondary text-sm">
+                  {user.firstName} {user.lastName}
+                </h3>
+              </div>
               <UserButton />
             </div>
           )}
